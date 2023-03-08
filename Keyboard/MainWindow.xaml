@@ -1,0 +1,124 @@
+﻿<Window x:Class="Keyboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Keyboard"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="396" Width="766" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style  TargetType="{x:Type Button}">
+
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="8" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#b4cee0"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#b4cee0"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#F1CA68"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="#F1CA68"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="0,0,2,-4" HorizontalAlignment="Right" Width="756" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="38*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="b1" Background="HotPink" Content="`" Height="45" Width="45" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Click="Button_Click" Focusable="False" />
+        <Button x:Name="b2" Background="HotPink" Content="1" Height="45" Width="45" HorizontalAlignment="Left" Margin="60,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Focusable="False" />
+        <Button x:Name="b3" Background="HotPink" Content="2" Height="45" Width="45" HorizontalAlignment="Left" Margin="110,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Focusable="False" />
+        <Button x:Name="b4" Background="PaleGoldenrod" Content="3" Height="45" Width="45" HorizontalAlignment="Left" Margin="160,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Focusable="False" />
+        <Button x:Name="b5" Background="LightGreen" Content="4" Height="45" Width="45" HorizontalAlignment="Left" Margin="210,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Focusable="False" />
+        <Button x:Name="b6" Background="CornflowerBlue" Content="5" Height="45" Width="45" HorizontalAlignment="Left" Margin="260,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Focusable="False" Grid.ColumnSpan="2" />
+        <Button x:Name="b7" Background="CornflowerBlue" Content="6" Height="45" Width="45" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Focusable="False" Grid.Column="1" />
+        <Button x:Name="b8" Background="MediumPurple" Content="7" Height="45" Width="45" HorizontalAlignment="Left" Margin="60,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Focusable="False" Grid.Column="1" />
+        <Button x:Name="b9" Background="MediumPurple" Content="8" Height="45" Width="45" HorizontalAlignment="Left" Margin="110,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Focusable="False" Grid.Column="1" />
+        <Button x:Name="b10" Background="HotPink" Content="9" Height="45" Width="45" HorizontalAlignment="Left" Margin="160,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Focusable="False" Grid.Column="1" />
+        <Button x:Name="b11" Background="PaleGoldenrod" Content="0" Height="45" Width="45" HorizontalAlignment="Left" Margin="210,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="b12" Background="LightGreen" Content="-" Height="45" Width="45" HorizontalAlignment="Left" Margin="260,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="b13" Background="LightGreen" Content="=" Height="45" Width="45" HorizontalAlignment="Left" Margin="310,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="b14" Background="LightGray" Content="Backspace" Height="45" Width="90" HorizontalAlignment="Left" Margin="360,109,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="c1" Background="LightGray" Content="Tab" Height="45" Width="74" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="c2" Background="HotPink" Content="q" Height="45" Width="45" HorizontalAlignment="Left" Margin="89,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="c3" Background="PaleGoldenrod" Content="w" Height="45" Width="45" HorizontalAlignment="Left" Margin="139,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="c4" Background="LightGreen" Content="e" Height="45" Width="45" HorizontalAlignment="Left" Margin="189,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="c5" Background="CornflowerBlue" Content="r" Height="45" Width="45" HorizontalAlignment="Left" Margin="239,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="c6" Background="CornflowerBlue" Content="t" Height="45" Width="45" HorizontalAlignment="Left" Margin="289,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.ColumnSpan="2" />
+        <Button x:Name="c7" Background="MediumPurple" Content="y" Height="45" Width="45" HorizontalAlignment="Left" Margin="39,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="c8" Background="MediumPurple" Content="u" Height="45" Width="45" HorizontalAlignment="Left" Margin="89,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="c9" Background="HotPink" Content="i" Height="45" Width="45" HorizontalAlignment="Left" Margin="139,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="c10" Background="PaleGoldenrod" Content="o" Height="45" Width="45" HorizontalAlignment="Left" Margin="189,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="c11" Background="LightGreen" Content="p" Height="45" Width="45" HorizontalAlignment="Left" Margin="239,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="c12" Background="LightGreen" Content="[" Height="45" Width="45" HorizontalAlignment="Left" Margin="289,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="c13" Background="LightGreen" Content="]" Height="45" Width="45" HorizontalAlignment="Left" Margin="339,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="c14" Background="LightGreen" Content="\" Height="45" Width="61" HorizontalAlignment="Left" Margin="389,159,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="Caps" Background="LightGray" Content="Caps Lock" Height="45" Width="90" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="f1" Background="HotPink" Content="a" Height="45" Width="45" HorizontalAlignment="Left" Margin="105,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="f2" Background="PaleGoldenrod" Content="s" Height="45" Width="45" HorizontalAlignment="Left" Margin="155,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="f3" Background="LightGreen" Content="d" Height="45" Width="45" HorizontalAlignment="Left" Margin="205,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="f4" Background="CornflowerBlue" Content="f" Height="45" Width="45" HorizontalAlignment="Left" Margin="255,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="f5" Background="CornflowerBlue" Content="g" Height="45" Width="45" HorizontalAlignment="Left" Margin="5,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="f6" Background="MediumPurple" Content="h" Height="45" Width="45" HorizontalAlignment="Left" Margin="55,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="f7" Background="MediumPurple" Content="j" Height="45" Width="45" HorizontalAlignment="Left" Margin="105,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="f8" Background="HotPink" Content="k" Height="45" Width="45" HorizontalAlignment="Left" Margin="155,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="f9" Background="PaleGoldenrod" Content="l" Height="45" Width="45" HorizontalAlignment="Left" Margin="203,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="f10" Background="LightGreen"  Content=";" Height="45" Width="45" HorizontalAlignment="Left" Margin="253,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="f11" Background="LightGreen"  Content="'" Height="45" Width="45" HorizontalAlignment="Left" Margin="303,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="Enter" Background="LightGray" Content="Enter" Height="45" Width="95" HorizontalAlignment="Left" Margin="353,209,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="LShift" Background="LightGray" Content="Shift" Height="45" Width="115" HorizontalAlignment="Left" Margin="10,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="y1" Background="HotPink" Content="z" Height="45" Width="45" HorizontalAlignment="Left" Margin="130,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="y2" Background="PaleGoldenrod" Content="x" Height="45" Width="45" HorizontalAlignment="Left" Margin="180,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="y3" Background="LightGreen" Content="c" Height="45" Width="45" HorizontalAlignment="Left" Margin="230,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="y4" Background="CornflowerBlue" Content="v" Height="45" Width="45" HorizontalAlignment="Left" Margin="280,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.ColumnSpan="2" />
+        <Button x:Name="y5" Background="CornflowerBlue" Content="b" Height="45" Width="45" HorizontalAlignment="Left" Margin="30,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="y6" Background="MediumPurple" Content="n" Height="45" Width="45" HorizontalAlignment="Left" Margin="80,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="y7" Background="MediumPurple" Content="m" Height="45" Width="45" HorizontalAlignment="Left" Margin="130,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="y8" Background="HotPink" Content="," Height="45" Width="45" HorizontalAlignment="Left" Margin="178,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="y9" Background="PaleGoldenrod" Content="." Height="45" Width="45" HorizontalAlignment="Left" Margin="228,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="y10" Background="LightGreen" Content="/" Height="45" Width="45" HorizontalAlignment="Left" Margin="278,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="RShift" Background="LightGray" Content="Shift" Height="45" Width="120" HorizontalAlignment="Left" Margin="328,259,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="LCtrl" Background="LightGray" Content="Ctrl" Height="45" Width="74" HorizontalAlignment="Left" Margin="10,309,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="LWin" Background="LightGray" Content="Win" Height="45" Width="74" HorizontalAlignment="Left" Margin="89,309,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+        <Button x:Name="LAlt"  Background="LightGray" Content="Alt" Height="45" Width="74" HorizontalAlignment="Left" Margin="168,309,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" />
+
+        <Button x:Name="Space" Background="SandyBrown" Content="Space" Height="45" Width="262" HorizontalAlignment="Left" Margin="247,309,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.ColumnSpan="2" />
+        <Button x:Name="RAlt" Background="LightGray" Content ="Alt" Height="45" Width="74" HorizontalAlignment="Left" Margin="214,309,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="RWin" Background="LightGray" Content="Win" Height="45" Width="74" HorizontalAlignment="Left" Margin="293,309,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <Button x:Name="RCtrl" Background="LightGray" Content="Ctrl" Height="45" Width="74" HorizontalAlignment="Left" Margin="372,309,0,0" VerticalAlignment="Top" FontFamily="Tw Cen MT Condensed Extra Bold" FontSize="20" Grid.Column="1" />
+        <TextBox x:Name="TB1" HorizontalAlignment="Left" Height="34" Margin="10,70,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="740" Background="#FF41D8BD" FontSize="20" ForceCursor="True" FontFamily="Segoe UI Semibold" Foreground="#FF0017FF" Grid.ColumnSpan="2" IsEnabled="False"/>
+        <TextBox x:Name="TB2" HorizontalAlignment="Left" Height="34" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="740" Foreground="#FF040605" Background="Transparent" FontSize="20" ForceCursor="True" FontFamily="Segoe UI Semibold" Grid.ColumnSpan="2" IsEnabled="False"/>
+
+        <Button x:Name="Start" Content="Start" HorizontalAlignment="Left" Margin="102,35,0,0" VerticalAlignment="Top" Width="171" Style="{x:Null}" Height="30" Grid.Column="1" Click="Start_Click"/>
+        <Button x:Name="Stop" Content="Stop" HorizontalAlignment="Left" Margin="279,35,0,0" VerticalAlignment="Top" Width="171"  Style="{x:Null}" Height="30" Grid.Column="1" IsEnabled="False" Click="Stop_Click"/>
+        <CheckBox x:Name="CB" Content="Case Sensitive" HorizontalAlignment="Left" Margin="339,12,0,0" VerticalAlignment="Top" FontFamily="Yu Gothic UI" FontSize="14" Grid.Column="1" Checked="CheckBox_Checked" IsEnabledChanged="CB_IsEnabledChanged"/>
+        <Slider x:Name="Slider" Maximum="2" TickPlacement="BottomRight" TickFrequency="1" HorizontalAlignment="Left" Margin="219,6,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="104" Grid.Column="1" IsSnapToTickEnabled="True" ValueChanged="Slider_ValueChanged"></Slider>
+        <Label x:Name="Difficulty" Content="Difficulty: 1" HorizontalAlignment="Left" Margin="116,4,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.921,0.308" FontFamily="Yu Gothic UI" FontSize="14" Grid.Column="1"/>
+        <Label x:Name="Fails" Content="Fails: 0" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.921,0.308" FontFamily="Yu Gothic UI Semibold" FontSize="20"/>
+        <Label x:Name="Speed" Content="Speed: 0 chars/min" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.921,0.308" FontFamily="Yu Gothic UI Semibold" FontSize="20"/>
+
+
+
+    </Grid>
+
+</Window>
